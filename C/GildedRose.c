@@ -29,7 +29,7 @@ bool isnt_brie_or_backstage_passes(Item item)
 
 bool is_sulfuras(Item item)
 {
-    return (strcmp(item.name, "Sulfuras, Hand of Ragnaros"));
+    return (0 == strcmp(item.name, "Sulfuras, Hand of Ragnaros"));
 }
 
 void update_quality(Item items[], int size) 
@@ -40,7 +40,7 @@ void update_quality(Item items[], int size)
     {
         if (isnt_brie_or_backstage_passes(items[i]))
         {
-            if (items[i].quality > 0 && is_sulfuras(items[i]))
+            if (items[i].quality > 0 && !is_sulfuras(items[i]))
             {
                 items[i].quality = items[i].quality - 1;
             }
@@ -72,7 +72,7 @@ void update_quality(Item items[], int size)
             }
         }
 
-        if (is_sulfuras(items[i]))
+        if (!is_sulfuras(items[i]))
         {
             items[i].sellIn = items[i].sellIn - 1;
         }
@@ -83,7 +83,7 @@ void update_quality(Item items[], int size)
             {
                 if (is_passes(items[i]))
                 {
-                    if (items[i].quality > 0 && is_sulfuras(items[i]))
+                    if (items[i].quality > 0 && !is_sulfuras(items[i]))
                     {
                         items[i].quality = items[i].quality - 1;
                     }

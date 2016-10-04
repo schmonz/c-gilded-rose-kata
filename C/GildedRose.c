@@ -3,6 +3,7 @@
 #include "GildedRose.h"
 
 #define MAX_QUALITY 50
+#define MIN_QUALITY  0
 
 Item*
 init_item(Item* item, const char *name, int sellIn, int quality)
@@ -37,7 +38,7 @@ void update_quality(Item items[], int size)
     {
         if (!is_brie(items[i]) && !is_passes(items[i]))
         {
-            if (items[i].quality > 0 && !is_sulfuras(items[i]))
+            if (items[i].quality > MIN_QUALITY && !is_sulfuras(items[i]))
             {
                 items[i].quality = items[i].quality - 1;
             }
@@ -80,7 +81,7 @@ void update_quality(Item items[], int size)
             {
                 if (!is_passes(items[i]))
                 {
-                    if (items[i].quality > 0 && !is_sulfuras(items[i]))
+                    if (items[i].quality > MIN_QUALITY && !is_sulfuras(items[i]))
                     {
                         items[i].quality = items[i].quality - 1;
                     }

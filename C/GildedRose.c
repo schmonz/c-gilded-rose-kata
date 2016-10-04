@@ -66,7 +66,7 @@ void update_quality(Item items[], int size)
             }
         }
 
-        if (strcmp(items[i].name, "Sulfuras, Hand of Ragnaros"))
+        if (is_sulfuras(items[i]))
         {
             items[i].sellIn = items[i].sellIn - 1;
         }
@@ -79,7 +79,7 @@ void update_quality(Item items[], int size)
                 {
                     if (items[i].quality > 0)
                     {
-                        if (strcmp(items[i].name, "Sulfuras, Hand of Ragnaros"))
+                        if (is_sulfuras(items[i]))
                         {
                             items[i].quality = items[i].quality - 1;
                         }

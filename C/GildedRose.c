@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <string.h>
 #include "GildedRose.h"
 
@@ -11,13 +12,19 @@ init_item(Item* item, const char *name, int sellIn, int quality)
     return item;
 }
 
+bool is_brie_or_backstage_passes(Item item)
+{
+    return (strcmp(item.name, "Aged Brie")
+            && strcmp(item.name, "Backstage passes to a TAFKAL80ETC concert"));
+}
+
 void update_quality(Item items[], int size) 
 {
     int i;
     
     for (i = 0; i < size; i++)
     {
-        if (strcmp(items[i].name, "Aged Brie") && strcmp(items[i].name, "Backstage passes to a TAFKAL80ETC concert"))
+        if (is_brie_or_backstage_passes(items[i]))
         {
             if (items[i].quality > 0)
             {

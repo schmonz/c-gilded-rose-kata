@@ -14,26 +14,28 @@ TEST_GROUP(TestGildedRoseGroup)
   }
 };
 
-TEST(TestGildedRoseGroup, FirstTest)
+TEST(TestGildedRoseGroup, ConjuredQualityDrops2xNormalBeforeSellIn)
 {
     Item items[2];
-    init_item(items, "Foo", 0, 0);
-    update_quality(items, 1);
-    STRCMP_EQUAL("fixme", items[0].name);
+    init_item(&items[0], "Elixir of the Mongoose", 5, 7);
+    init_item(&items[1], "Conjured Mana Cake", 3, 6);
+
+    update_quality(items, 2);
+
+    LONGS_EQUAL(7 - 1, items[0].quality);
+    LONGS_EQUAL(6 - 2, items[1].quality);
 }
 
-void example()
+TEST(TestGildedRoseGroup, ConjuredQualityDrops2xNormalAfterSellIn)
 {
-    Item items[6];
-    int last = 0;
-    
-    init_item(items + last++, "+5 Dexterity Vest", 10, 20);
-    init_item(items + last++, "Aged Brie", 2, 0);
-    init_item(items + last++, "Elixir of the Mongoose", 5, 7);
-    init_item(items + last++, "Sulfuras, Hand of Ragnaros", 0, 80);
-    init_item(items + last++, "Backstage passes to a TAFKAL80ETC concert", 15, 20);
-    init_item(items + last++, "Conjured Mana Cake", 3, 6);
-    update_quality(items, last);
+    Item items[2];
+    init_item(&items[0], "Elixir of the Mongoose", 0, 7);
+    init_item(&items[1], "Conjured Mana Cake", 0, 6);
+
+    update_quality(items, 2);
+
+    LONGS_EQUAL(7 - 2, items[0].quality);
+    LONGS_EQUAL(6 - 4, items[1].quality);
 }
 
 int

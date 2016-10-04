@@ -2,6 +2,8 @@
 #include <string.h>
 #include "GildedRose.h"
 
+#define MAX_QUALITY 50
+
 Item*
 init_item(Item* item, const char *name, int sellIn, int quality)
 {
@@ -42,7 +44,7 @@ void update_quality(Item items[], int size)
         }
         else
         {
-            if (items[i].quality < 50)
+            if (items[i].quality < MAX_QUALITY)
             {
                 items[i].quality = items[i].quality + 1;
 
@@ -50,7 +52,7 @@ void update_quality(Item items[], int size)
                 {
                     if (items[i].sellIn < 11)
                     {
-                        if (items[i].quality < 50)
+                        if (items[i].quality < MAX_QUALITY)
                         {
                             items[i].quality = items[i].quality + 1;
                         }
@@ -58,7 +60,7 @@ void update_quality(Item items[], int size)
 
                     if (items[i].sellIn < 6)
                     {
-                        if (items[i].quality < 50)
+                        if (items[i].quality < MAX_QUALITY)
                         {
                             items[i].quality = items[i].quality + 1;
                         }
@@ -90,7 +92,7 @@ void update_quality(Item items[], int size)
             }
             else
             {
-                if (items[i].quality < 50)
+                if (items[i].quality < MAX_QUALITY)
                 {
                     items[i].quality = items[i].quality + 1;
                 }

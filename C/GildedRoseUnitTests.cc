@@ -29,13 +29,14 @@ TEST(TestGildedRoseGroup, ConjuredQualityDrops2xNormalBeforeSellIn)
 TEST(TestGildedRoseGroup, ConjuredQualityDrops2xNormalAfterSellIn)
 {
     Item items[2];
-    init_item(&items[0], "Elixir of the Mongoose", 0, 7);
-    init_item(&items[1], "Conjured Mana Cake", 0, 6);
+    init_item(&items[0], "Elixir of the Mongoose", 1, 7);
+    init_item(&items[1], "Conjured Mana Cake", 1, 6);
 
     update_quality(items, 2);
+    update_quality(items, 2);
 
-    LONGS_EQUAL(7 - 2, items[0].quality);
-    LONGS_EQUAL(6 - 4, items[1].quality);
+    LONGS_EQUAL(7 - 1 - 2, items[0].quality);
+    LONGS_EQUAL(6 - 2 - 4, items[1].quality);
 }
 
 int

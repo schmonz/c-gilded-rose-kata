@@ -88,7 +88,7 @@ void update_quality(Item items[], int size)
                 }
                 else
                 {
-                    items[i].quality = items[i].quality - items[i].quality;
+                    items[i].quality = 0;
                 }
             }
             else

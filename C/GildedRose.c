@@ -2,9 +2,6 @@
 #include <string.h>
 #include "GildedRose.h"
 
-#define MAX_QUALITY 50
-#define MIN_QUALITY  0
-
 Item*
 init_item(Item* item, const char *name, int sellIn, int quality)
 {
@@ -32,13 +29,13 @@ bool is_sulfuras(Item item)
 
 void increment_quality(Item *item)
 {
-    if (item->quality < MAX_QUALITY)
+    if (item->quality < 50)
         ++item->quality;
 }
 
 void decrement_quality(Item *item)
 {
-    if (item->quality > MIN_QUALITY)
+    if (item->quality > 0)
         --item->quality;
 }
 

@@ -18,6 +18,11 @@ bool is_brie_or_backstage_passes(Item item)
             && strcmp(item.name, "Backstage passes to a TAFKAL80ETC concert"));
 }
 
+bool is_sulfuras(Item item)
+{
+    return (strcmp(item.name, "Sulfuras, Hand of Ragnaros"));
+}
+
 void update_quality(Item items[], int size) 
 {
     int i;
@@ -28,7 +33,7 @@ void update_quality(Item items[], int size)
         {
             if (items[i].quality > 0)
             {
-                if (strcmp(items[i].name, "Sulfuras, Hand of Ragnaros"))
+                if (is_sulfuras(items[i]))
                 {
                     items[i].quality = items[i].quality - 1;
                 }

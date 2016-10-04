@@ -37,16 +37,16 @@ all : $(TESTS) $(TEXTTESTS)
 GildedRose.o : $(USER_DIR)/GildedRose.c
 
 GildedRoseUnitTests : $(USER_DIR)/GildedRoseUnitTests.cc GildedRose.o
-	$(CXX) $(CPPFLAGS) $(CFLAGS) -o $@ $(USER_DIR)/GildedRoseUnitTests.cc GildedRose.o $(LD_LIBRARIES)
+	@$(CXX) $(CPPFLAGS) $(CFLAGS) -o $@ $(USER_DIR)/GildedRoseUnitTests.cc GildedRose.o $(LD_LIBRARIES)
 
 GildedRoseTextTests.o : $(USER_DIR)/GildedRoseTextTests.c
 
 GildedRoseTextTests : GildedRoseTextTests.o GildedRose.o
-	$(CC) $^ -o $@
+	@$(CC) $^ -o $@
 
 clean :
-	rm -f $(TESTS) $(TEXTTESTS) *.o *~
-	rm -rf *.dSYM
+	@rm -f $(TESTS) $(TEXTTESTS) *.o *~ actual.txt
+	@rm -rf *.dSYM
 
 check-syntax:
-	gcc $(CPPFLAGS) -o /dev/null -S ${CHK_SOURCES}
+	@gcc $(CPPFLAGS) -o /dev/null -S ${CHK_SOURCES}

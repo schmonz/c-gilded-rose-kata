@@ -11,7 +11,7 @@
 
 # Points to the root of CppUTest, relative to where this file is.
 # Remember to tweak this if you move this file.
-CPPUTEST_HOME = /opt/pkg
+CPPUTEST_HOME = /Users/schmonz/pkg
 
 # Where to find user code.
 USER_DIR = .
